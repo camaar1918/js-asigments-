@@ -7,3 +7,5 @@ const classname=document.querySelectorAll('.som');
 
 console.log(classname);
 
+
+
