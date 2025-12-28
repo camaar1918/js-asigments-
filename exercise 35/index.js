@@ -15,6 +15,7 @@ function change(){
     let height=prompt("so gali widithka")
 
     image.style.height=(height+'px')
+    
     image.setAttribute('src',URL);
 
 

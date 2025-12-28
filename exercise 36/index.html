@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker</title>
+</head>
+<body>
+
+  <h1>Color Picker</h1>
+
+  <input id="color" type="color">
+
+  <div id="box" style="width: 200px; height: 300px; border: 3px solid black; margin-top: 20px;"></div>
+  <div id="sl"></div>
+  <button id="cls">clear histor</button>
+
+  <script>
+    const input = document.querySelector("#color");
+    const box = document.querySelector("#box");
+    const sl = document.querySelector("#sl");
+    const cls=document.querySelector("#cls")
+
+    input.addEventListener("input", function() {
+      const color = input.value; // midabka la doortay
+      box.style.backgroundColor = color;
+
+      // Hubi haddii midabkan horey ugu jiro taariikhda
+      const existingColors = Array.from(sl.children).map(div => div.textContent);
+      if (!existingColors.includes(color)) {
+        const historyItem = document.createElement("div");
+        historyItem.textContent = color;
+        historyItem.style.color = color;
+        historyItem.style.fontWeight = "bold";
+        historyItem.style.marginBottom = "5px";
+        sl.prepend(historyItem); // ku dar taariikhda
+
+       
+
+
+
+
+      }
+    });
+
+     cls.addEventListener("click", function() {
+      while (sl.firstChild) {
+        sl.removeChild(sl.firstChild); // tirtir kaliya midabada ku jira sl
+      }
+    });
+  </script>
+  
+</body>
+</html>
